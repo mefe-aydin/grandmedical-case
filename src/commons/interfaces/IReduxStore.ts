@@ -1,5 +1,5 @@
-import { ISelectInput } from "./ISelectInput";
+import { ISelect } from "./ISelect";
 
 export interface IReduxStore {
-  selectInputs: ISelectInput[];
+  selectsState: ISelect[];
 }

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import selectInputs from "./selectInputs";
+import selectsState from "./selectsState";
 
 const rootReducer = combineReducers({
-  selectInputs,
+  selectsState,
 });
 
 export default rootReducer;

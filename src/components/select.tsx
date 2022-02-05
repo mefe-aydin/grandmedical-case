@@ -1,6 +1,8 @@
-import { FC, FormEvent } from "react";
+import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { TOGGLE_SELECT_INPUT } from "../store/actions/actionTypes";
+import { SELECTED_OPTION, TOGGLE_SELECT } from "../store/actions/actionTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import styles from "./select.module.css";
 
 export const Select: FC<Props> = ({
@@ -8,36 +10,60 @@ export const Select: FC<Props> = ({
   options,
   selectIndex,
   isCollapse,
+  selectedOption,
 }) => {
   const dispatch = useDispatch();
 
-  const toggleDropDown = (e: FormEvent<HTMLSelectElement>, index: number) => {
-    if (!isCollapse) {
-      e.preventDefault();
-    }
+  const toggleDropDown = () => {
+    dispatch({
+      type: TOGGLE_SELECT,
+      payload: {
+        index: selectIndex,
+        data: !isCollapse,
+      },
+    });
+  };
+
+  const selectOption = async (option: string) => {
+    await dispatch({
+      type: TOGGLE_SELECT,
+      payload: {
+        index: selectIndex,
+        data: false,
+      },
+    });
 
     dispatch({
-      type: TOGGLE_SELECT_INPUT,
+      type: SELECTED_OPTION,
       payload: {
-        index,
-        data: !isCollapse,
+        index: selectIndex,
+        data: option,
       },
     });
   };
 
   return (
     <div className={styles.container}>
-      {name}
-      <div className={styles.selectContainer}>
-        select <span>i</span>
+      <span className={styles.title}>{name}</span>
+      <div onClick={toggleDropDown} className={styles.selectContainer}>
+        {selectedOption ? selectedOption : "select"}{" "}
+        <FontAwesomeIcon
+          icon={!isCollapse ? faArrowDown : faArrowUp}
+          size="sm"
+        />
       </div>
-      {/* <select onMouseDown={(e) => toggleDropDown(e, selectIndex)} id={name}>
-        {options.map((option, index) => (
-          <option key={`${option}-${index}`} value={option}>
-            {option}
-          </option>
-        ))}
-      </select> */}
+      {isCollapse && (
+        <div className={styles.optionContainer}>
+          {options.map((option, index) => (
+            <span
+              onClick={() => selectOption(option)}
+              key={`${option}-${index}`}
+            >
+              {option}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
@@ -47,4 +73,5 @@ interface Props {
   options: string[];
   selectIndex: number;
   isCollapse: boolean;
+  selectedOption: null | string;
 }
