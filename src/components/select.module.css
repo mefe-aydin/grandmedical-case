@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    padding: 8px 12px 8px 8px;
+}
+
+.selectContainer {
+    border: 1px solid #cecece;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+    cursor: pointer;
+}
