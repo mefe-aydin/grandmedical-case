@@ -1,5 +1,9 @@
 import { ISelect } from "../../commons/interfaces/ISelect";
-import { SELECTED_OPTION, TOGGLE_SELECT } from "../actions/actionTypes";
+import {
+  SELECTED_OPTION,
+  SELECTED_OPTION_CLEAR,
+  TOGGLE_SELECT,
+} from "../actions/actionTypes";
 
 const initialState: ISelect[] = [
   {
@@ -59,6 +63,15 @@ const selectInputs = (state = initialState, action: any) => {
         if (item.index === index) {
           return { ...item, selectedOption: data };
         }
+
+        return item;
+      });
+
+      return newState;
+    }
+    case SELECTED_OPTION_CLEAR: {
+      const newState = state.map((item) => {
+        item.selectedOption = null;
 
         return item;
       });

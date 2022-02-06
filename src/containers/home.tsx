@@ -1,15 +1,16 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IReduxStore } from "../commons/interfaces/IReduxStore";
-import { Select } from "../components";
-import { TOGGLE_SELECT } from "../store/actions/actionTypes";
+import { Button, Select } from "../components";
 import styles from "../commons/styles/home.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilRuler } from "@fortawesome/free-solid-svg-icons";
+import { SELECTED_OPTION_CLEAR } from "../store/actions/actionTypes";
 
 export const Home: FC = () => {
+  const [showSelectState, setShowSelectState] = useState(false);
   const dispatch = useDispatch();
   const selectsState = useSelector((state: IReduxStore) => state.selectsState);
-
-  console.log(selectsState);
 
   return (
     <div className={styles.container}>
@@ -27,27 +28,38 @@ export const Home: FC = () => {
           ))}
         </div>
         <div className={styles.submitContainer}>
-          {selectsState.map((select) => (
-            <span key={select.index}>{select.selectedOption}</span>
-          ))}
-          <button>TEST</button>
+          <div>
+            {showSelectState &&
+              selectsState
+                .filter((select) => select.selectedOption)
+                .map((select, index) => (
+                  <span className={styles.optionContainer} key={index}>
+                    {select.name}: {select.selectedOption}
+                  </span>
+                ))}
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button
+              onClick={() => setShowSelectState(true)}
+              label="apply"
+              className={`${styles.button} ${styles.buttonTypeOne}`}
+            />
+            <Button
+              onClick={() => {
+                setShowSelectState(false);
+                dispatch({ type: SELECTED_OPTION_CLEAR });
+              }}
+              label="cancel"
+              className={`${styles.button} ${styles.buttonTypeTwo}`}
+            />
+            <Button
+              onClick={() => {}}
+              label={<FontAwesomeIcon icon={faPencilRuler} size="sm" />}
+              className={`${styles.button} ${styles.buttonTypeThree}`}
+            />
+          </div>
         </div>
       </div>
-
-      <button
-        onClick={() => {
-          dispatch({
-            type: TOGGLE_SELECT,
-            payload: {
-              index: 2,
-              data: true,
-            },
-          });
-        }}
-      >
-        DEDASDAS
-      </button>
-      <h1>home page</h1>
     </div>
   );
 };

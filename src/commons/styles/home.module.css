@@ -18,5 +18,49 @@
     padding: 8px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.optionContainer {
+    margin-right: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(2, 2, 2);
+}
+
+.buttonContainer {
+    display: flex;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    margin-right: 8px;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:last-child {
+    margin-right: 0;
+}
+
+.buttonTypeOne {
+    border: 2px solid rgb(27, 179, 250);
+    color: rgb(27, 179, 250);
+    width: 65px;
+}
+
+.buttonTypeTwo {
+    border: 2px solid #797979;
+    color: #797979;
+    width: 70px;
+}
+
+.buttonTypeThree {
+    border: 2px solid rgb(175, 3, 3);
+    color: rgb(175, 3, 3);
+    width: 50px;
 }
