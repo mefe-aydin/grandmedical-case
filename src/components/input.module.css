@@ -1,0 +1,17 @@
+.container {
+    position: relative;
+}
+
+.container input {
+    border: 1px solid #7e7e7e;
+    border-radius: 4px;
+    height: 40px;
+    padding: 0 32px 0 8px;
+    width: 225px;
+}
+
+.container svg {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}

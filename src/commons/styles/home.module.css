@@ -1,10 +1,104 @@
+h1,
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     padding: 0 8px;
+    background-color: #e6e6e6;
+    height: 100vh;
+}
+
+.container h1 {
+    padding-top: 12px;
+    font-size: 16px;
+    color: rgb(24, 24, 24);
+    font-weight: 500;
+}
+
+.container h2 {
+    font-size: 15px;
+    color: rgb(24, 24, 24);
+    font-weight: 400;
+    margin: 2px 0 10px;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titleButtonContainer {
+    display: flex;
+}
+
+.titleButtonContainer button {
+    flex-direction: row-reverse;
+    border: 1px solid #b1b1b1;
+    background-color: #e6e6e6;
+    color: #b1b1b1;
+}
+
+.titleButtonContainer button svg {
+    margin-right: 6px;
+}
+
+.bodyContainer {
+    background-color: #fff;
+    padding: 16px;
+}
+
+.filterContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 16px 12px 0;
+}
+
+.filterRightContainer {
+    display: flex;
+    align-items: center;
+}
+
+.filterRightContainer button {
+    height: 40px;
+}
+
+.filterRightContainer .approvalButton {
+    border: 1px solid rgb(255, 255, 55);
+    color: #4e4e4e;
+}
+
+.filterRightContainer .iconButton {
+    width: 40px;
+    border: 1px solid #797979;
+    border-right: none;
+    color: #4e4e4e;
+    margin-right: 0;
+}
+
+.filterRightContainer .lastIconButton {
+    border-right: 1px solid #797979;
+    color: #4e4e4e;
+    margin-right: 8px;
+}
+
+.filterRightContainer .filterButton {
+    border: 1px solid #cecece;
+    background-color: #797979;
+    color: #fff;
+    width: 70px;
+}
+
+.filterRightContainer .filterButton svg {
+    margin-left: 12px;
 }
 
 .formContainer {
     border: 2px solid rgb(93, 216, 93);
-    margin: 8px 32px 8px 8px;
+    margin-right: 16px;
 }
 
 .selectsContainer {
@@ -48,19 +142,19 @@
 }
 
 .buttonTypeOne {
-    border: 2px solid rgb(27, 179, 250);
+    border: 1px solid rgb(27, 179, 250);
     color: rgb(27, 179, 250);
     width: 65px;
 }
 
 .buttonTypeTwo {
-    border: 2px solid #797979;
+    border: 1px solid #797979;
     color: #797979;
     width: 70px;
 }
 
 .buttonTypeThree {
-    border: 2px solid rgb(175, 3, 3);
+    border: 1px solid rgb(175, 3, 3);
     color: rgb(175, 3, 3);
     width: 50px;
 }
