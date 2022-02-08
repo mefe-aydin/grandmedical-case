@@ -54,7 +54,7 @@ export const Home: FC = () => {
             />
             <Button
               label={<FontAwesomeIcon icon={faPencilRuler} />}
-              className={`${styles.button} ${styles.iconButton}`}
+              className={`${styles.button} ${styles.iconButton} ${styles.firstIconButton}`}
             />
             <Button
               label={<FontAwesomeIcon icon={faCaretSquareRight} />}

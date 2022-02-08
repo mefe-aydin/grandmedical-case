@@ -13,3 +13,8 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 75px 1fr;
+}
