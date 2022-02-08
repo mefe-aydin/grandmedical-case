@@ -1,0 +1,45 @@
+.headerContainer {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cecece;
+    padding: 2px;
+}
+
+.headerContainer span {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 500;
+    color: #7e7e7e;
+}
+
+.daysContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 2px;
+    column-gap: 6px;
+    padding: 4px;
+}
+
+.coloredDayContainer:nth-child(-n + 13) {
+    background-color: #7fcfed;
+}
+
+.coloredDayContainer:nth-child(n + 13) {
+    background-color: #feddcb;
+}
+
+.dayContainer {
+    width: 100%;
+    height: 20px;
+    background-color: #eff2f7;
+    cursor: pointer;
+}
+
+.dayContainer:nth-child(n + 13) {
+    margin-top: 6px;
+}
+
+.dayContainer:nth-child(n + 17) {
+    margin-top: 0;
+}

@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IReduxStore } from "../commons/interfaces/IReduxStore";
-import { Button, Input, Select } from "../components";
+import { Button, Calendar, Input, Select } from "../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPencilRuler,
@@ -118,6 +118,7 @@ export const Home: FC = () => {
             </div>
           </div>
         </div>
+        <Calendar />
       </div>
     </div>
   );
